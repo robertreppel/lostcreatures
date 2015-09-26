@@ -1,6 +1,6 @@
 
 # Import all lost animals in Vancouver into Elasticsearch
- 
+
 import urllib
 import json
 from pprint import pprint
@@ -17,6 +17,5 @@ animalCount = 0
 for i in lostAnimalsJsonArray:
     print i["Name"]
     animalCount = animalCount + 1
-    res = es.index(index="animals", doc_type="lostanimal", body=i)
-    print(res['created'])
+    res = es.index(index="animals", doc_type="lost", body=i)
 print animalCount
