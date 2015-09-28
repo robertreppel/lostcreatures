@@ -1,4 +1,6 @@
-#Elasticsearch With Vancouver Animals, Lost & Found
+#Vancouver Creatures Lost & found
+
+Docker & Elasticsearch demo.
 
 ##Getting Started:
 
