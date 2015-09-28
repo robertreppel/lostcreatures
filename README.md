@@ -1,44 +1,25 @@
-#Launches and populates an Elasticsearch instance containing all lost animals in Vancouver.
+#Elasticsearch With Vancouver Animals, Lost & Found
 
 ##Getting Started:
 
-1. 'docker run -d --name elasticsearch elasticsearch'   elasticsearch'
+1. Install https://www.docker.com/ and  https://www.getpostman.com/.
 
-2. 'python download-lostanimals.py'
+3. 'docker-compose up -d'
 
-3. Verify that Elasticsearch has started and find the IP address (e.g. 172.17.0.1:9200): 'docker logs elasticsearch'
+4. Verify Elasticsearch is up: http://localhost:9200/
 
-4. Check if 'animals' index exists: 'http://172.17.0.1:9200/_cat/indices?v'  
+4. 'docker exec lostcreatures_elastic_1 python /scripts/download-lostanimals.py'
 
-6. Freetext search: 'http://172.17.0.1:9200/animals/_search?q=toby'
+5. Check if 'animals' index exists: http://localhost:9200/_cat/indices?v  
 
+6. Try a freetext search: 'http://localhost:9200/animals/_search?q=toby'
 
-##Howto
+7. In Chrome, start Postman and and import 'ElasticsearchQueryExamples.json.postman_collection'.
 
-Elasticsearch cheat sheet: http://lzone.de/cheat-sheet/ElasticSearch
-https://www.elastic.co/guide/en/elasticsearch/reference/2.0/_executing_searches.html
+8. Try some queries.
 
+##HowTo:
 
-{"docs" : [ {"_id" : "AU_1PJ4xSSTQvIN1K10z", "_index" : "animals", "_type" : "lostanimal" },{ "_id" : "AU_1PLx0SSTQvIN1K2sB" }, "_index" : "animals", "_type" : "lostanimal" ] }
+- Elasticsearch cheat sheet: http://lzone.de/cheat-sheet/ElasticSearch
 
-
-##Notes:
-
-###Multi-Get
-
-https://www.elastic.co/guide/en/elasticsearch/reference/1.4/docs-multi-get.html
-
-curl http://172.17.0.1:9200/_mget -d '{
-    "docs" : [
-        {
-            "_index" : "animals",
-            "_type" : "lostanimal",
-            "_id" : "AU_1PJ4xSSTQvIN1K10z"
-        },
-        {
-            "_index" : "animals",
-            "_type" : "lostanimal",
-            "_id" : "AU_1PLx0SSTQvIN1K2sB"
-        }
-    ]
-}'
+- https://www.elastic.co/guide/en/elasticsearch/reference/2.0/_executing_searches.html
