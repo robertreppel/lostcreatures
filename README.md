@@ -12,9 +12,9 @@ Docker & Elasticsearch demo.
 
 4. ```docker exec lostcreatures_elastic_1 python /scripts/download-lostanimals.py```
 
-5. Check if 'animals' index exists: http://localhost:9200/_cat/indices?v  
+5. Check if 'animals' index exists: ```http://localhost:9200/_cat/indices?v```
 
-6. Try a freetext search: http://localhost:9200/animals/_search?q=toby
+6. Try a freetext search: ```http://localhost:9200/animals/_search?q=toby```
 
 7. In Chrome, start Postman and and import 'ElasticsearchQueryExamples.json.postman_collection'.
 
